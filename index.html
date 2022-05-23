@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        function verify_file1() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", `http://127.0.0.1:8080/verify_file1`, true);
+            xhr.withCredentials = true;
+            xhr.onload = () => {
+                if (xhr.readyState === 4) {
+                    if ((xhr.status === 200) || (xhr.status === 202) || (xhr.status === 201)) {
+                        console.log(xhr.statusText);
+                        parseData(xhr.responseText);
+                    } else {
+                        console.error(xhr.statusText);
+                        document.getElementById("response_text").innerHTML = "Unauthorized"
+                    }
+                }
+            };
+            xhr.onerror = () => {
+                console.error(xhr.statusText);
+            };
+            xhr.send(null);
+        }
+        function verify_file2() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", `http://127.0.0.1:8080/verify_file2`, true);
+            xhr.withCredentials = true;
+            xhr.onload = () => {
+                if (xhr.readyState === 4) {
+                    if  ((xhr.status === 200) || (xhr.status === 202) || (xhr.status === 201)) {
+                        console.log(xhr.statusText);
+                        parseData(xhr.responseText);
+                    } else {
+                        console.error(xhr.statusText);
+                        document.getElementById("response_text").innerHTML = "Unauthorized"
+                    }
+                }
+            };
+            xhr.onerror = () => {
+                console.error(xhr.statusText);
+            };
+            xhr.send(null);
+        }
+        function verify_file3() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", `http://127.0.0.1:8080/verify_file3`, true);
+            xhr.withCredentials = true;
+            xhr.onload = () => {
+                if (xhr.readyState === 4) {
+                    if ((xhr.status === 200) || (xhr.status === 202) || (xhr.status === 201)) {
+                        console.log(xhr.statusText);
+                        parseData(xhr.responseText);
+                    } else {
+                        console.error(xhr.statusText);
+                        document.getElementById("response_text").innerHTML = "Unauthorized"
+                    }
+                }
+            };
+            xhr.onerror = () => {
+                console.error(xhr.statusText);
+            };
+            xhr.send(null);
+        }
+        function parseData(response) {
+            console.log(response)
+            document.getElementById("response_text").innerHTML = response
+        }
+
+
+    </script>
+   
+    <button onclick="verify_file1()">file 1</button>
+    <button onclick="verify_file2()">file 2</button>
+    <button onclick="verify_file3()">file 3</button>
+
+    <div id="response_text">
+    </div>
+</body>
+</html> 
